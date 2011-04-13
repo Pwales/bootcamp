@@ -29,7 +29,7 @@
 class ContentsController extends AppController {
 	
 	public $components = array('Cookie','Cookievalidation','Content_','Tag_','Company_');
-	public $uses = array('Contents','Language','LinkedContent','Tags', 'RelatedCompanies');
+	public $uses = array('Contents','LinkedContent','Tags', 'RelatedCompanies');
 	
 	public function beforeFilter() {
 		parent::beforeFilter();		
@@ -210,7 +210,6 @@ class ContentsController extends AppController {
 		$content = $this->Nodes->find(array('type' => 'Content', 'Contents.id' => $contentId));
 		if(empty($content)) {
 			$this->Session->setFlash('Invalid content ID');
-			$this->redirect('/');
 		}
 		$content = $content[0];
 		$contentSpecificData = $this->Content_->getContentSpecificDataFromData($content['Node']['data']);
@@ -227,7 +226,7 @@ class ContentsController extends AppController {
 			}
 		}
 		
-		$linkedContentsCount = $this->LinkedContent->find('count',array(
+		$linkedContentsCount = $this->LinkedContent->find('all',array(
 													'conditions' => array('LinkedContent.from' => $contentId)));
 		
 		$linkedContents = $this->LinkedContent->find('all',array(

@@ -24,6 +24,7 @@
 
 
 Router::connect('/', array('controller' => 'contents', 'action' => 'browse', 'index'));
+	Router::connect('/contents/*', array('controller' => 'contents', 'action' => 'browse')); //This is needed to route all other traffic to browse that are not valid routes. This must not be removed.
 	Router::connect('/contents/link/', array('controller' => 'contents', 'action' => 'link'));
 	Router::connect('/contents/linksearch/', array('controller' => 'contents', 'action' => 'linksearch'));
 	Router::connect('/contents/setcookie/*', array('controller' => 'contents', 'action' => 'setcookie'));
@@ -33,7 +34,7 @@ Router::connect('/', array('controller' => 'contents', 'action' => 'browse', 'in
 	Router::connect('/contents/challenge/', array('controller' => 'contents', 'action' => 'browse', 'challenge'));
 	Router::connect('/contents/idea/', array('controller' => 'contents', 'action' => 'browse', 'idea'));
 	Router::connect('/contents/vision/', array('controller' => 'contents', 'action' => 'browse', 'vision'));
-	Router::connect('/contents/*', array('controller' => 'contents', 'action' => 'browse')); //This is needed to route all other traffic to browse
+	
 	
 	
 	
