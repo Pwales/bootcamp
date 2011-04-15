@@ -33,10 +33,8 @@ echo $this->element('contents'.DS.'add_new_link_to_content', array('cache' => fa
 	<div class="clear"></div>
 	<div id="content-page-context">
 			
-		<?php if($content['body'] != ''): ?>
-		<p><?php echo nl2br($content['body']); ?></p>
-		<?php endif; ?>
-		
+		<p id="content-body"><?php echo nl2br($content); ?></p>
+
 		<?php foreach($specific as $type => $spec): ?>
 			<h3><?php 
 			if($type == 'research') { echo "Research question"; }

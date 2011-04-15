@@ -7,31 +7,10 @@
 		<li><a href="#related-campaigns">Campaigns</a></li>
 		<li><a href="#related-statistics">Statistics</a></li>
 	</ul>
-	<div id="related-author">
-		<p>hihiHAH hHAH hHHrh hfshsfh fsh fshsh fshsf fsh</p>
-		<p>hihiHAH hHAH hHHrh hfshsfh fsh fshsh fshsf fsh</p>
-		<p>hihiHAH hHAH hHHrh hfshsfh fsh fshsh fshsf fsh</p>
-		<p>hihiHAH hHAH hHHrh hfshsfh fsh fshsh fshsf fsh</p>
-	</div>
-	<div id="related-readers">
-
-		<?php echo $this->element('contents'.DS.'content_related_readers', array('cache' => false));  ?>
-
-	</div>
-	<div id="related-tags">
-		<p>hihiHAH hHAH hHHrh hfshsfh fsh fshsh fshsf fsh</p>
-		<p>hihiHAH hHAH hHHrh hfshsfh fsh fshsh fshsf fsh</p>
-		<p>hihiHAH hHAH hHHrh hfshsfh fsh fshsh fshsf fsh</p>
-		<p>hihiHAH hHAH hHHrh hfshsfh fsh fshsh fshsf fsh</p>
-	</div>
-	<div id="related-related_companies">
-		<p>hihiHAH hHAH hHHrh hfshsfh fsh fshsh fshsf fsh</p>
-		<p>hihiHAH hHAH hHHrh hfshsfh fsh fshsh fshsf fsh</p>
-		<p>hihiHAH hHAH hHHrh hfshsfh fsh fshsh fshsf fsh</p>
-		<p>hihiHAH hHAH hHHrh hfshsfh fsh fshsh fshsf fsh</p>
-	</div>
-	
-	<div id="related-campaigns"></div>
-	
+	<div id="related-author"></div>
+	<div id="related-readers"></div>
+	<div id="related-tags"></div>
+	<div id="related-related_companies"></div>
+	<div id="related-campaigns"></div>	
 	<div id="related-statistics"></div>
 </div>

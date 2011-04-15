@@ -9,9 +9,7 @@
 	
 	<?php echo $form->hidden('receiver', array('value' => 0)); ?>
 
-	<?php echo $form->input('message', array('type' => 'textarea',
-											'rows' => 6,
-											'cols' => 40,
+	<?php echo $form->input('message', array('type' => 'text',
 											'label' => 'Message')
 	); ?>	
 	
