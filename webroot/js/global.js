@@ -105,6 +105,7 @@ function countCharactersLeft(o,limit) {
  * @return null
  */
 function eventAnimate(o,color) {
+	o.stop(true,true);
 	backColor = o.css('backgroundColor');
 	if(!color) { 
 		color = 'red';
@@ -177,7 +178,7 @@ $(document).ready(function(){
 		closeOnEscape: true,
 		draggable: false,
 		modal: true,
-		resizable: false,
+		resizable: true,
 		title: 'Select content type',
 		dialogClass: "fixedDialog",
 		autoOpen: false,
@@ -192,10 +193,9 @@ $(document).ready(function(){
 		resizable: true,
 		title: 'Register Description',
 		autoOpen: false,
-		position: 'top',
 		dialogClass: "fixedDialog",
 		width: 700,
-		height: 400
+		height: 100
 	});
 	
 	$("#privacy").dialog({
@@ -211,13 +211,8 @@ $(document).ready(function(){
 		height: 400
 	});
 	
-	/**
-	 * After selecting content type, close the dialog
-	 */
-	$("#addNewContentDialog > .add_new > .add_new_info > a").each(function(){
-		$(this).click(function(){		
-			$("#addNewContentDialog").dialog("close");
-		});
+	$("#loginlink").click(function() {
+			eventAnimate($(this));
 	});
 	
 	/**
@@ -226,30 +221,15 @@ $(document).ready(function(){
 	 * Else show login_box dialog and focus on username field.
 	 */
 	$("#addNewContentButton").click(function(){
-		if($("#addNewContentDialog").html() != null) {
-			$("#addNewContentDialog").dialog("open");
-		}
-		else {
-			$("#login_box").dialog( "option", "title", 'You must login to add content' );
-			$("#login_box").dialog("open");
-			$("#login_box > form > div:nth-child(2) > input").focus();
-		}
-		
+		$("#addNewContentDialog").dialog("open");
 	});
 	
 	/**
-	 * Clicing terms link opens the terms dialog and
 	 * Clicking privacy link opens the privacy dialog
 	 */
-	
-	$("#terms_link").click(function(e){
-		e.preventDefault();
-		$("#terms").dialog("open");	
-	});
-	
 	$("#privacy_link").click(function(e){
-		e.preventDefault();
-		$("#privacy").dialog("open");	
+		$("#privacy").dialog("open");
+		return false;
 	});
 	
 	/**

@@ -183,7 +183,6 @@ class ContentsController extends AppController {
 			} else {
 				$this->Content_->setAllContentDataForEdit($content[0]);
 				$editData = $this->Content_->getContentDataForEdit();
-				$this->data = $editData;
 			}
 			$this->set('language_list',$this->Language->find('list',array('order' => array('Language.name' => 'ASC'))));
 			$this->set('content_type',$content[0]['Node']['class']);
@@ -200,8 +199,7 @@ class ContentsController extends AppController {
 	public function view($contentId = -1) {
 		if($contentId == -1) {
 			$this->redirect('/');
-		}
-		$this->set('content_class','contentWithTopAndSidebar');		
+		}	
 		
 		$users = array('table' => 'users', 'alias' => 'User', 'type' => 'left', 'conditions' => array("User.id = Privileges.creator"));
 		$lang = array('table' => 'languages', 'alias' => 'Language', 'type' => 'left', 'conditions' => array("Contents.language_id = Language.id"));

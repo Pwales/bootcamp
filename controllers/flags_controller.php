@@ -62,6 +62,7 @@ class FlagsController extends AppController {
 	
 	public function add() {
 		if ($this->RequestHandler->isAjax()) {
+			echo 1; die;
 			if (!empty($this->data)) {
 				$page = $this->_getFlagPage($this->data['flag']['type'],true,array($this->data['flag']['id']));
 				

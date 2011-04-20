@@ -6,7 +6,7 @@ function flagPage(formData) {
 		success: function(data) {
 			if(data == "1") {
 				resetFlash();
-				setFlash("Page was flagged successfully",'successfull');
+				setFlash("Page was flagged successfully");
 				showFlash();
 				return true;
 			} else {
@@ -66,4 +66,5 @@ $(document).ready(function(){
 		$("#flag-page").dialog('open');
 		return false;
 	});
+	
 });

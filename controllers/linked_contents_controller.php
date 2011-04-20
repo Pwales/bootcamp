@@ -50,7 +50,8 @@ class LinkedContentsController extends AppController {
 				$title = $this->data['Content']['title'];
 				$id = $this->data['Content']['id'];
 				
-				$contents = $this->Nodes->find(array('type' => 'Content', 'published' => 1, 'Contents.id <>' => $id),array('order' => 'title ASC'),true);
+				$contents; //Here should be code that finds contents
+				//$contents = $this->Nodes->find(array('type' => 'Content', 'published' => 1),array('order' => 'title DESC'),true);
 				if(empty($contents)) { echo "[]";die; }
 
 				$contentLinks = $this->LinkedContent->find('all',array('conditions' => array('from' => $id)));
@@ -70,8 +71,6 @@ class LinkedContentsController extends AppController {
 	         
 	            echo json_encode($parsedContents);
 			}
-		} else {
-			$this->redirect('/');
 		}
 	}
 	
@@ -86,12 +85,9 @@ class LinkedContentsController extends AppController {
 			if (!empty($this->params['form'])) {
 				$to = $this->params['form']['to'];
 				$from = $this->params['form']['from'];
-				$this->Nodes->link($from,$to,false);
 				
 				echo 1;
 			}
-		} else {
-			$this->redirect('/');
 		}
 	}
 	
@@ -106,11 +102,9 @@ class LinkedContentsController extends AppController {
 			if (!empty($this->params['form'])) {
 				$to = $this->params['form']['to'];
 				$from = $this->params['form']['from'];
-				$this->Nodes->removeLink($from,$to);
+
 				echo 1;
 			}
-		} else {
-			$this->redirect('/');
 		}
 	}
 }

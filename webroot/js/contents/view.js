@@ -10,9 +10,9 @@ function expandCollapse(name,launcher,target) {
 function setImage(launcher,target) {
 	var expandButton = $(launcher).children(".icon");
 	if ($(target).is(':hidden')){
-		$(expandButton).attr("src", jsMeta.baseUrl+"/img/icon_plus_tiny.png");
+		$(expandButton).attr("src", "/img/icon_plus_tiny.png");
 	} else {
-		$(expandButton).attr("src", jsMeta.baseUrl+"/img/icon_minus_tiny.png");
+		$(expandButton).attr("src", "/img/icon_minus_tiny.png");
 	}
 }
 
@@ -61,10 +61,11 @@ function getLinkedOutput(data) {
 }
 
 function searchFromData(searchquery,data) {
+	var searchquery = searchquery.toLowerCase();
 	var returns = [];
 	var options = $("#LinkSearchOptionsViewForm > input:checkbox");
 	$.each(data,function(){
-		if(this.title.indexOf(searchquery) > -1 || searchquery.length == 0){
+		if(this.title.toLowerCase().indexOf(searchquery) > -1 || searchquery.length == 0){
 			if(this['class'] == 'challenge' && options[0].checked) {
 				returns.push(this);
 			} else if(this['class'] == 'idea' && options[1].checked) {
@@ -230,17 +231,7 @@ $(document).ready(function(){
 	});
 
 	contentLinkInit();
-	
-	$("#flagAddForm > a").click(function(){
-		$("#flagAddForm").submit();
-		return false;
-	});
-	
-	$("#flagAddForm").submit(function(){
-		flagContent($(this).serializeArray());
-		return false;
-	});
-	
+		
 	$("#content-view-readers-list").infiniteCarousel({
 		inView: 6,
 		advance: 5,
